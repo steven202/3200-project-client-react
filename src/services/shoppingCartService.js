@@ -9,7 +9,7 @@ export default class ShoppingCartService {
         return this.myInstance;
     }
     hostname=window.location.hostname;
-    ENDPOINT= (this.hostname==="localhost")? "http://localhost:8080":"http://localhost:4141";
+    ENDPOINT= (this.hostname==="localhost")? "http://localhost:8080":"https://cs3200-project-server-java.herokuapp.com/";
     sendRequest = (entity, operation) =>
         fetch(`${this.ENDPOINT}/request?entity=${entity}&operation=${operation}`
         ).then(
