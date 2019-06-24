@@ -23,10 +23,10 @@ export default class ShoppingCartService {
                     'content-type': 'application/json'
                 }
             }).then(response=>response.json())
-    sendLogin=(username, password) =>{
+    sendLogin=(hostname,username, password) =>{
         // console.log(this.hostname);
 
-       return  fetch(`${this.ENDPOINT}/login?username=${username}&password=${password}`).then(response => response.json());
+       return  fetch(`${this.ENDPOINT}/login?hostname=${hostname}&username=${username}&password=${password}`).then(response => response.json());
     };
 
 

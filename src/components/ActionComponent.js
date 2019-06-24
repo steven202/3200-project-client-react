@@ -6,6 +6,7 @@ export default class ActionComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            hostname:"",
             username:"",
             password:"",
             entity: null,
@@ -16,6 +17,7 @@ export default class ActionComponent extends React.Component {
             resultSet2:{records:[]},
             login: false,
             passwordAlert:false
+
         }
         this.service = ShoppingCartService.getInstance();
     }
@@ -43,14 +45,17 @@ export default class ActionComponent extends React.Component {
                 {!this.state.login&&
                 <div className='container-fluid'>
                     <label>username</label>
-                    <input value={this.state.username} onChange={(event)=>this.setState({username:event.target.value})} className="form-control"
+                    <input value={this.state.hostname} placeholder="localhost:3306" onChange={(event)=>this.setState({hostname:event.target.value})} className="form-control"
+                           type="text"/>
+                    <label>username</label>
+                    <input value={this.state.username} placeholder="root" onChange={(event)=>this.setState({username:event.target.value})} className="form-control"
                     type="text"/>
                     <label>password</label>
-                    <input value={this.state.password} onChange={(event)=>this.setState({password:event.target.value})}
+                    <input value={this.state.password} placeholder="abcdefg" onChange={(event)=>this.setState({password:event.target.value})}
                            type="password"  className="form-control"/>
                     <button className='btn btn-primary'
                     onClick={
-                        ()=>{this.processLogin(this.state.username, this.state.password)}
+                        ()=>{this.processLogin(this.state.hostname, this.state.username, this.state.password)}
                     }
                     >login</button>
                     {this.state.passwordAlert&&<h3 className="font-italic bg-danger">wrong username or password entered.</h3>}
@@ -167,6 +172,33 @@ export default class ActionComponent extends React.Component {
                              }>
                             Delete
                         </div>
+                        {this.state.entity==="order"&&
+                        <div className="btn btn-primary"
+                             onClick={() =>{
+                                 this.setState(
+                                     {
+                                         entity: this.state.entity,
+                                         operation: "check_seller", showOperation: false
+                                     });
+                                 this.service.sendRequest(this.state.entity, "check_seller").then(
+                                     result => this.showResultSet(result));}
+                             }>
+                            check seller
+                        </div>}
+
+                        {this.state.entity==="seller"&&
+                        <div className="btn btn-primary"
+                             onClick={() =>{
+                                 this.setState(
+                                     {
+                                         entity: this.state.entity,
+                                         operation: "check_customers", showOperation: false
+                                     });
+                                 this.service.sendRequest(this.state.entity, "check_customers").then(
+                                     result => this.showResultSet(result));}
+                             }>
+                            check customers
+                        </div>}
                     </div>}
 
                     {this.state.showResult && 
@@ -200,8 +232,8 @@ export default class ActionComponent extends React.Component {
         )
     }
 
-    processLogin(username, password) {
-        this.service.sendLogin(username,password).then(
+    processLogin(hostname,username, password) {
+        this.service.sendLogin(hostname,username,password).then(
             record =>
             {if(record.records[0]==='yes'){
                 this.setState({login:true, passwordAlert:false})
