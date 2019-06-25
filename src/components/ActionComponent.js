@@ -44,7 +44,7 @@ export default class ActionComponent extends React.Component {
             <div>
                 {!this.state.login&&
                 <div className='container-fluid'>
-                    <label>username</label>
+                    <label>hostname</label>
                     <input value={this.state.hostname} placeholder="localhost:3306" onChange={(event)=>this.setState({hostname:event.target.value})} className="form-control"
                            type="text"/>
                     <label>username</label>
