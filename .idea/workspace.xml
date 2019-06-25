@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f190f5e-1f2f-4850-a016-cd94c38642ac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/ActionComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ActionComponent.js" afterDir="false" />
-    </list>
+    <list default="true" id="8f190f5e-1f2f-4850-a016-cd94c38642ac" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -114,6 +111,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -165,16 +163,18 @@
       <workItem from="1561065530358" duration="2928000" />
       <workItem from="1561080253962" duration="2241000" />
       <workItem from="1561460111158" duration="46000" />
+      <workItem from="1561460190087" duration="11000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20811000" />
+    <option name="totallyTimeSpent" value="20822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="25" width="1456" height="947" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26379067" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26732674" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
